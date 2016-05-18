@@ -12,6 +12,7 @@ public class BoggleBoard {
     private final int rows;
     private final int cols;
     private final char[][] board;
+    final char outOfBounds = (char) 0;
 
     // Initializes a random 4-by-4 Boggle board.
     // (by rolling the Hasbro dice)
@@ -66,7 +67,11 @@ public class BoggleBoard {
     // Returns the letter in row i and column j.
     // (with 'Q' representing the two-letter sequence "Qu")
     public char getLetter(int i, int j) {
-        return board[i][j];
+        if (i >= 0 && i < rows() && j >= 0 && j < cols) {
+            return board[i][j];
+        } else {
+            return outOfBounds;
+        }
     }
 
     // Returns a string representation of the board.

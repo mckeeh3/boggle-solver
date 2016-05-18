@@ -3,10 +3,7 @@ package boggle;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Dictionary {
@@ -23,8 +20,13 @@ public class Dictionary {
     }
 
     void addWords(String dictionaryFilename) throws IOException {
-        Stream<String> lines = Files.lines(Paths.get(dictionaryFilename));
-        lines.forEach(this::addWord);
+        Stream<String> words = Files.lines(Paths.get(dictionaryFilename));
+        words.forEach(this::addWord);
+    }
+
+    void addWords(String[] dictionary) {
+        Stream<String> words = Arrays.stream(dictionary);
+        words.forEach(this::addWord);
     }
 
     private void addWord(String word) {
