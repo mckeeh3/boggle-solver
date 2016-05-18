@@ -67,9 +67,9 @@ public class BoggleSolverTest {
     }
 
     @Test
-    public void solve100boardsAndTimeIt() {
-        long elapsed = solve(100);
-        assertTrue(elapsed < 10000);
+    public void solve1000boardsAndTimeIt() {
+        long elapsed = solve(1000);
+        assertTrue(elapsed < 2000);
     }
 
     @Before
