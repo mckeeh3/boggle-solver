@@ -21,7 +21,7 @@ public class BoggleSolver {
 
     // Returns the set of all valid words in the given Boggle board, as an Iterable.
     public Iterable<String> getAllValidWords(BoggleBoard board) {
-        List<String> validWords = new ArrayList<>();
+        Set<String> validWords = new HashSet<>();
         Queue<Track> tracks = new LinkedList<>();
 
         for (int r = 0; r < board.cols(); r++) {
@@ -53,15 +53,15 @@ public class BoggleSolver {
         int length = word.length() + (word.indexOf('Q') < 0 ? 0 : 1);
         int score = 0;
 
-        if (length > 2 && length <= 4) {
+        if (length >= 3 && length <= 4) {
             score = 1;
         } else if (length == 5) {
             score = 2;
         } else if (length == 6) {
             score = 3;
         } else if (length == 7) {
-            score = 4;
-        } else if (length > 7) {
+            score = 5;
+        } else if (length >= 8) {
             score = 11;
         }
         return score;
